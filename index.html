@@ -294,7 +294,7 @@
 <div class="empty" id="empty">NO BUILDS MATCH — TRY ANOTHER QUERY</div>
 
 <footer>
-  <span>FLOPTOPBOP — <b id="count">9</b> live builds</span>
+  <span>FLOPTOPBOP — <b id="count">13</b> live builds</span>
   <span>github.io // built on phone</span>
 </footer>
 
@@ -308,21 +308,21 @@ const CATEGORIES = [
     label: "LIVE INPUT // CAMERA",
     projects: [
       {
-        id: "scanderlydarklied",
+        id: "-scanderlydarklied-",
         name: "TRINITY ENGINE",
         desc: "Live camera suite: Monklin warp × Razor edge × Bayer dither. Freeze-frame capture with real-time compositing.",
         tags: ["WEBGL","CAM"],
         wip: false
       },
       {
-        id: "Wavy",
+        id: "-Wavy-",
         name: "SUMI-E DAEMON",
         desc: "Ink-wash camera filter — ghost wash, mid bloom & black strokes with a draggable hanko seal.",
         tags: ["CANVAS","CAM"],
         wip: false
       },
       {
-        id: "Syntheticstiv",
+        id: "-Syntheticstiv-",
         name: "SYNESTHESIA ENGINE",
         desc: "Live image-to-audio translation — maps visual input to synthesized sound in real time. Camera feed drives the music.",
         tags: ["AUDIO","CAM"],
@@ -335,18 +335,25 @@ const CATEGORIES = [
     label: "IMAGE PROCESSING",
     projects: [
       {
-        id: "nonenage",
+        id: "-nonenage-",
         name: "PANDRA_OS // SHARD RECON",
         desc: "Dual-scanline edge & skeleton extraction with commit-to-stack layering. Decompose any image into structural geometry.",
         tags: ["CANVAS","TOOL"],
         wip: false
       },
       {
-        id: "Ascci",
-        name: "PYFORGE",
-        desc: "Unified browser-based image effects engine — ten Python processing scripts ported to JS as a single HTML tool.",
+        id: "-pixle_forge-",
+        name: "PIXEL_FORGE",
+        desc: "Browser-based image manipulation toolkit — layered effects and pixel-level editing.",
         tags: ["CANVAS","TOOL"],
-        wip: true
+        wip: false
+      },
+      {
+        id: "-watery-colors--",
+        name: "WATERCOLOR // FORCE MODEL",
+        desc: "Pressure-sensitive watercolor simulation — pigment bleeds, blooms, and dries like real paint.",
+        tags: ["CANVAS","TOOL"],
+        wip: false
       },
     ]
   },
@@ -355,23 +362,30 @@ const CATEGORIES = [
     label: "3D // TRAVERSAL",
     projects: [
       {
-        id: "Voxel",
+        id: "-Voxel-",
         name: "PANDRA_OS // MONUMENT",
-        desc: "Voxel monument explorer — grapple, jetpack & walk traversal across monument-scale architecture. Octree SDF with tri-directional image projection.",
+        desc: "Voxel monument explorer — grapple, jetpack & walk traversal across monument-scale architecture. Octree SDF with tri-directional image projection. Now supports in-world video capture and export.",
         tags: ["THREE.JS","3D"],
         wip: false
       },
       {
-        id: "odsforge",
+        id: "-odsforge-",
         name: "odsforge",
         desc: "physicsy and function testing- grapple, walk traversal across customizable landscape. Touch screen blade mechanics ",
         tags: ["THREE.JS","3D"],
         wip: false
       },
       {
-        id: "OHhHHh_fishyfishyfishyfis",
+        id: "-deoth-",
+        name: "PANDRA_OS // ODM",
+        desc: "Fun fidget warp toy — mesh-based 3D deformation you can poke, pull, and play with.",
+        tags: ["THREE.JS","3D"],
+        wip: false
+      },
+      {
+        id: "-OHhHHh_fishyfishyfishyfis-",
         name: "VOLUMETRIC NANO SWARM",
-        desc: "TrueColor volumetric particle swarm — dense agent flocking rendered in real time with instanced geometry.",
+        desc: "TrueColor volumetric particle swarm reimagined as a living koi pond — dense agent flocking rendered in real time with instanced geometry.",
         tags: ["WEBGL","3D"],
         wip: false
       },
@@ -382,17 +396,30 @@ const CATEGORIES = [
     label: "ASCII // SIMULATION",
     projects: [
       {
-        id: "Beach-day",
+        id: "-Beach-day-",
         name: "ASCII OCEAN",
-        desc: "Finite-difference wave sim with shoreline wash-up and a wandering bear. Full character-cell fluid dynamics.",
+        desc: "Finite-difference wave sim with a wandering bear — now cycles through day, night, and shifting weather systems. Full character-cell fluid dynamics.",
         tags: ["ASCII","SIM"],
         wip: false
       },
       {
-        id: "glyphForge",
+        id: "-glyphForge-",
         name: "ASCII WATER",
         desc: "Character-cell fluid study — wave buffer rendered in pure text. Minimal, hypnotic.",
         tags: ["ASCII","SIM"],
+        wip: false
+      },
+    ]
+  },
+  {
+    id: "audio",
+    label: "AUDIO // SYNTHESIS",
+    projects: [
+      {
+        id: "-Synthogram-",
+        name: "AXIOM-OS // SAMPLE VOICES",
+        desc: "Sample-based beat and music maker — chop, sequence, and perform with your own audio samples.",
+        tags: ["AUDIO","TOOL"],
         wip: false
       },
     ]
