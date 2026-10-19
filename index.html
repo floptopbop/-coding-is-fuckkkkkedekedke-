@@ -24,6 +24,7 @@
     --green-dim:#198038;
     --purple:#be95ff;
     --purple-dim:#8a3ffc;
+    --teal:#3ddbd9;
     --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
     --sans:'IBM Plex Sans',system-ui,-apple-system,sans-serif;
   }
@@ -151,6 +152,8 @@
   .section[data-cat="ascii"] .section-label{color:var(--amber)}
   .section[data-cat="audio"] .section-pip{background:#ff7eb6}
   .section[data-cat="audio"] .section-label{color:#ff7eb6}
+  .section[data-cat="misc"] .section-pip{background:var(--teal)}
+  .section[data-cat="misc"] .section-label{color:var(--teal)}
 
   /* ---------- grid ---------- */
   .grid{
@@ -286,6 +289,7 @@
     <button class="ftag" data-filter="3d">3D</button>
     <button class="ftag" data-filter="ascii">ASCII</button>
     <button class="ftag" data-filter="audio">AUDIO</button>
+    <button class="ftag" data-filter="misc">MISC</button>
   </div>
 </div>
 
@@ -294,7 +298,7 @@
 <div class="empty" id="empty">NO BUILDS MATCH — TRY ANOTHER QUERY</div>
 
 <footer>
-  <span>FLOPTOPBOP — <b id="count">13</b> live builds</span>
+  <span>FLOPTOPBOP — <b id="count">16</b> live builds</span>
   <span>github.io // built on phone</span>
 </footer>
 
@@ -315,17 +319,10 @@ const CATEGORIES = [
         wip: false
       },
       {
-        id: "Zenn",
-        name: "ZEN GARDEN",
-        desc: "Touch sand garden — rake patterns, place stones, and let petals drift across the sand.",
-        tags: ["CANVAS","SIM"],
-        wip: false
-      },
-     {
-        id: "soundstuff",
-        name: "SOUNDSTUFF // SPECTROGRAM",
-        desc: "Turn any image into spectrogram audio. Save the result and replay it anytime.",
-        tags: ["AUDIO","TOOL"],
+        id: "-Wavy-",
+        name: "SUMI-E DAEMON",
+        desc: "Ink-wash camera filter — ghost wash, mid bloom & black strokes with a draggable hanko seal.",
+        tags: ["CANVAS","CAM"],
         wip: false
       },
       {
@@ -377,8 +374,8 @@ const CATEGORIES = [
       },
       {
         id: "-sumiarm-",
-        name: "sumiarm",
-        desc: "arm will draw sruff",
+        name: "SUMI ARM",
+        desc: "Articulated arm that draws stuff.",
         tags: ["THREE.JS","3D"],
         wip: false
       },
@@ -399,21 +396,28 @@ const CATEGORIES = [
     ]
   },
   {
-    id: "physics",
+    id: "ascii",
     label: "ASCII // SIMULATION",
     projects: [
       {
         id: "-splattered-",
-        name: "spkatter engine",
+        name: "SPLATTER ENGINE",
         desc: "Finite-difference wave sim with a wandering bear — now cycles through day, night, and shifting weather systems. Full character-cell fluid dynamics.",
         tags: ["ASCII","SIM"],
         wip: false
       },
       {
         id: "-Gyro-",
-        name: "Gyroscope engibe",
-        desc: "spin and torque and things.",
-        tags: ["gyro","SIM"],
+        name: "GYROSCOPE ENGINE",
+        desc: "Spin, torque, and things.",
+        tags: ["GYRO","SIM"],
+        wip: false
+      },
+      {
+        id: "Zenn",
+        name: "ZEN GARDEN",
+        desc: "Touch sand garden — rake patterns, place stones, and let petals drift across the sand.",
+        tags: ["CANVAS","SIM"],
         wip: false
       },
     ]
@@ -430,13 +434,24 @@ const CATEGORIES = [
         wip: false
       },
       {
-
-        id: "-Wavy-",
-        name: "SUMI-E DAEMON",
-        desc: "Ink-wash camera filter — ghost wash, mid bloom & black strokes with a draggable hanko seal.",
-        tags: ["CANVAS","CAM"],
+        id: "soundstuff",
+        name: "SOUNDSTUFF // SPECTROGRAM",
+        desc: "Turn any image into spectrogram audio. Save the result and replay it anytime.",
+        tags: ["AUDIO","TOOL"],
         wip: false
-
+      },
+    ]
+  },
+  {
+    id: "misc",
+    label: "ORACLE // MISC",
+    projects: [
+      {
+        id: "-Astrology-",
+        name: "ASTROLOGY",
+        desc: "Find your star sign. Pick your birth date and see which sign you are.",
+        tags: ["CANVAS","TOOL"],
+        wip: false
       },
     ]
   },
@@ -539,7 +554,7 @@ function applyFilters() {
   CATEGORIES.forEach(cat => {
     const section = document.querySelector(`.section[data-cat="${cat.id}"]`);
     const grid = document.getElementById(`grid-${cat.id}`);
-    const countEl = document.getElementById(`count-${cat.id}`);
+    const sectionCountEl = document.getElementById(`count-${cat.id}`);
     const cards = grid.querySelectorAll(".card");
 
     let sectionVisible = 0;
@@ -558,7 +573,7 @@ function applyFilters() {
 
     // hide entire section if nothing visible
     section.style.display = sectionVisible === 0 ? "none" : "";
-    countEl.textContent = sectionVisible;
+    sectionCountEl.textContent = sectionVisible;
   });
 
   emptyEl.style.display = totalVisible === 0 ? "block" : "none";
@@ -580,6 +595,9 @@ document.querySelectorAll(".ftag").forEach(btn => {
     applyFilters();
   });
 });
+
+// Initial pass so the footer count is always the real total
+applyFilters();
 </script>
 </body>
 </html>
