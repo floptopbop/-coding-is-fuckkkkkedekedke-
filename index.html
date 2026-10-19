@@ -25,6 +25,7 @@
     --purple:#be95ff;
     --purple-dim:#8a3ffc;
     --teal:#3ddbd9;
+    --red:#fa4d56;
     --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
     --sans:'IBM Plex Sans',system-ui,-apple-system,sans-serif;
   }
@@ -142,6 +143,8 @@
   }
 
   /* section accent colors */
+  .section[data-cat="sumi"] .section-pip{background:var(--red)}
+  .section[data-cat="sumi"] .section-label{color:var(--red)}
   .section[data-cat="camera"] .section-pip{background:var(--blue-hi)}
   .section[data-cat="camera"] .section-label{color:var(--blue-hi)}
   .section[data-cat="image"] .section-pip{background:var(--green)}
@@ -284,11 +287,12 @@
   <div class="filter-row">
     <span class="filter-label">FILTER:</span>
     <button class="ftag active" data-filter="all">ALL</button>
+    <button class="ftag" data-filter="sumi">SUMI</button>
+    <button class="ftag" data-filter="audio">AUDIO</button>
     <button class="ftag" data-filter="camera">CAM</button>
     <button class="ftag" data-filter="image">IMAGE</button>
     <button class="ftag" data-filter="3d">3D</button>
     <button class="ftag" data-filter="ascii">ASCII</button>
-    <button class="ftag" data-filter="audio">AUDIO</button>
     <button class="ftag" data-filter="misc">MISC</button>
   </div>
 </div>
@@ -308,6 +312,67 @@ const ALLOW = "camera;microphone;gyroscope;accelerometer;fullscreen;xr-spatial-t
 
 const CATEGORIES = [
   {
+    id: "sumi",
+    label: "SUMI // INK & GARDEN",
+    projects: [
+      {
+        id: "-sumiarm-",
+        name: "SUMI ARM",
+        desc: "Articulated arm that draws ink strokes.",
+        tags: ["THREE.JS","3D"],
+        wip: false
+      },
+      {
+        id: "-OHhHHh_fishyfishyfishyfis-",
+        name: "VOLUMETRIC NANO SWARM",
+        desc: "TrueColor volumetric particle swarm reimagined as a living koi pond — dense agent flocking rendered in real time with instanced geometry.",
+        tags: ["WEBGL","3D"],
+        wip: false
+      },
+      {
+        id: "Zenn",
+        name: "ZEN GARDEN",
+        desc: "Touch sand garden — rake patterns, place stones, and let petals drift across the sand.",
+        tags: ["CANVAS","SIM"],
+        wip: false
+      },
+      {
+        id: "-watery-colors-",
+        name: "WATERCOLOR // FORCE MODEL",
+        desc: "Pressure-sensitive watercolor simulation — pigment bleeds, blooms, and dries like real paint.",
+        tags: ["CANVAS","TOOL"],
+        wip: false
+      },
+    ]
+  },
+  {
+    id: "audio",
+    label: "AUDIO // SYNTHESIS",
+    projects: [
+      {
+        id: "-Synthogram-",
+        name: "AXIOM-OS // SAMPLE VOICES",
+        desc: "Sample-based beat and music maker — chop, sequence, and perform with your own audio samples.",
+        tags: ["AUDIO","TOOL"],
+        wip: false
+      },
+      {
+        id: "soundstuff",
+        name: "SOUNDSTUFF // SPECTROGRAM",
+        desc: "Turn any image into spectrogram audio. Save the result and replay it anytime.",
+        tags: ["AUDIO","TOOL"],
+        wip: false
+      },
+      {
+        id: "-Syntheticstiv-",
+        name: "SYNESTHESIA ENGINE",
+        desc: "Live image-to-audio translation — maps visual input to synthesized sound in real time. Camera feed drives the music.",
+        tags: ["AUDIO","CAM"],
+        wip: false
+      },
+    ]
+  },
+  {
     id: "camera",
     label: "LIVE INPUT // CAMERA",
     projects: [
@@ -316,20 +381,6 @@ const CATEGORIES = [
         name: "TRINITY ENGINE",
         desc: "Live camera suite: Monklin warp × Razor edge × Bayer dither. Freeze-frame capture with real-time compositing.",
         tags: ["WEBGL","CAM"],
-        wip: false
-      },
-      {
-        id: "-Wavy-",
-        name: "SUMI-E DAEMON",
-        desc: "Ink-wash camera filter — ghost wash, mid bloom & black strokes with a draggable hanko seal.",
-        tags: ["CANVAS","CAM"],
-        wip: false
-      },
-      {
-        id: "-Syntheticstiv-",
-        name: "SYNESTHESIA ENGINE",
-        desc: "Live image-to-audio translation — maps visual input to synthesized sound in real time. Camera feed drives the music.",
-        tags: ["AUDIO","CAM"],
         wip: false
       },
     ]
@@ -352,13 +403,6 @@ const CATEGORIES = [
         tags: ["CANVAS","TOOL"],
         wip: false
       },
-      {
-        id: "-watery-colors-",
-        name: "WATERCOLOR // FORCE MODEL",
-        desc: "Pressure-sensitive watercolor simulation — pigment bleeds, blooms, and dries like real paint.",
-        tags: ["CANVAS","TOOL"],
-        wip: false
-      },
     ]
   },
   {
@@ -373,24 +417,10 @@ const CATEGORIES = [
         wip: false
       },
       {
-        id: "-sumiarm-",
-        name: "SUMI ARM",
-        desc: "Articulated arm that draws stuff.",
-        tags: ["THREE.JS","3D"],
-        wip: false
-      },
-      {
         id: "-deoth-",
         name: "PANDRA_OS // ODM",
         desc: "Fun fidget warp toy — mesh-based 3D deformation you can poke, pull, and play with.",
         tags: ["THREE.JS","3D"],
-        wip: false
-      },
-      {
-        id: "-OHhHHh_fishyfishyfishyfis-",
-        name: "VOLUMETRIC NANO SWARM",
-        desc: "TrueColor volumetric particle swarm reimagined as a living koi pond — dense agent flocking rendered in real time with instanced geometry.",
-        tags: ["WEBGL","3D"],
         wip: false
       },
     ]
@@ -414,30 +444,10 @@ const CATEGORIES = [
         wip: false
       },
       {
-        id: "Zenn",
-        name: "ZEN GARDEN",
-        desc: "Touch sand garden — rake patterns, place stones, and let petals drift across the sand.",
+        id: "-Wavy-",
+        name: "CIRCUIT LAB",
+        desc: "Draw wires and drop in parts — a live electrical sim that solves current and voltage as you build.",
         tags: ["CANVAS","SIM"],
-        wip: false
-      },
-    ]
-  },
-  {
-    id: "audio",
-    label: "AUDIO // SYNTHESIS",
-    projects: [
-      {
-        id: "-Synthogram-",
-        name: "AXIOM-OS // SAMPLE VOICES",
-        desc: "Sample-based beat and music maker — chop, sequence, and perform with your own audio samples.",
-        tags: ["AUDIO","TOOL"],
-        wip: false
-      },
-      {
-        id: "soundstuff",
-        name: "SOUNDSTUFF // SPECTROGRAM",
-        desc: "Turn any image into spectrogram audio. Save the result and replay it anytime.",
-        tags: ["AUDIO","TOOL"],
         wip: false
       },
     ]
@@ -456,7 +466,6 @@ const CATEGORIES = [
     ]
   },
 ];
-
 const main = document.getElementById("main");
 const emptyEl = document.getElementById("empty");
 const countEl = document.getElementById("count");
